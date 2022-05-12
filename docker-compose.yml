@@ -16,6 +16,7 @@ services:
     security_opt:
     - seccomp:unconfined
     volumes:
+      - ./volumes/mysql/custom.cnf:/etc/mysql/my.cnf
       - ./data/:/docker-entrypoint-initdb.d/
     logging:
       driver: "json-file"
