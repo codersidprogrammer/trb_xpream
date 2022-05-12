@@ -16,6 +16,8 @@ services:
     volumes:
       # Dump files for initiating tables
       - ./data/:/docker-entrypoint-initdb.d/
+    networks:
+      - mysqlnet
     logging:
       driver: "json-file"
       options:
@@ -58,6 +60,8 @@ services:
       context: .
       dockerfile: logstash.Dockerfile
     container_name: sem_logstash
+    networks:
+      - mysqlnet
     depends_on:
       - mysql
       - elasticsearch
@@ -74,3 +78,7 @@ services:
 volumes:
   esdata:
     driver: local
+
+networks:
+  mysqlnet:
+    driver: bridge
