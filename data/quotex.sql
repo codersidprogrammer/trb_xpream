@@ -1,0 +1,91 @@
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : aero_data_local
+ Source Server Type    : MySQL
+ Source Server Version : 100424
+ Source Host           : localhost:3306
+ Source Schema         : quotex
+
+ Target Server Type    : MySQL
+ Target Server Version : 100424
+ File Encoding         : 65001
+
+ Date: 12/05/2022 10:39:31
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for ws_header
+-- ----------------------------
+DROP TABLE IF EXISTS `ws_header`;
+CREATE TABLE `ws_header`  (
+  `ws_id` int NOT NULL AUTO_INCREMENT,
+  `ws_title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ws_quotation` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ws_revision` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ws_quot_type` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ws_date_in` date NULL DEFAULT NULL,
+  `ws_tat_propose` int NULL DEFAULT NULL,
+  `ws_ac_reg` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ws_ac_msn` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ws_ac_type` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ws_customer` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ws_reference` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ws_date_request` date NULL DEFAULT NULL,
+  `ws_date_expired` date NULL DEFAULT NULL,
+  `ws_mat_cap` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  `ws_mhrs_cap` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  `ws_status` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ws_currency` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ws_created_by` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ws_station` varchar(4) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ws_dbase` int NULL DEFAULT NULL,
+  `ws_plant` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`ws_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of ws_header
+-- ----------------------------
+INSERT INTO `ws_header` VALUES (1, 'C04-CHECK+6YR', 'MQ-000001', '0', 'SINGLE', '2022-07-09', 10, 'VH-VOS', NULL, 'A320', 'SKY JET', 'WO_12131556', '2022-05-11', '2022-06-10', '200', '100', 'DRAFT', 'USD', '532279', 'CGK', 1, 'GAH4');
+
+-- ----------------------------
+-- Table structure for ws_scope
+-- ----------------------------
+DROP TABLE IF EXISTS `ws_scope`;
+CREATE TABLE `ws_scope`  (
+  `scop_id` int NOT NULL AUTO_INCREMENT,
+  `scop_ws_id` int NULL DEFAULT NULL,
+  `scop_task_category` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `scop_task_source` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `scop_task_number` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `scop_task_title` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  `scop_remarks` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  PRIMARY KEY (`scop_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of ws_scope
+-- ----------------------------
+INSERT INTO `ws_scope` VALUES (1, 1, 'OOP', 'MPD', '200001-01-1', 'CHECK BONDING MEASUREMENT OF CLAMPS WITH A LOOP TESTER FROM FUSELAGE TO RIB 9', NULL);
+INSERT INTO `ws_scope` VALUES (2, 1, '6YR', 'MPD', '200003-03-1', 'GENERAL VISUAL INSPECTION OF ELEMENTS FITTED ON THE FOLLOWING HARNESSES: - 4202VB, 4204VB', NULL);
+INSERT INTO `ws_scope` VALUES (3, 1, '2C', 'MPD', 'ZL-317-01-1', 'GENERAL VISUAL INSPECTION OF TAIL CONE APU EXHAUST AREA (EWIS)', NULL);
+INSERT INTO `ws_scope` VALUES (4, 1, '2C', 'MPD', '711300-C2-1', 'DETAILED INSPECTION OF THE KEEPER ASSY FAN COWL LOCKING DEVICE', NULL);
+INSERT INTO `ws_scope` VALUES (5, 1, '2C', 'MPD', '783200-L2-1', 'GENERAL VISUAL INSPECTION OF INNER FIXED STRUCTURE FIRE SEALS, THERMAL BLANKET AND THRUST REVERSER FIRE SHIELDS.', NULL);
+INSERT INTO `ws_scope` VALUES (6, 1, '2C', 'MPD', '574101-01-1', 'DETAILED INSPECTION OF OUTER WING, FIXED LEADING EDGE, ROLLER PIN HOLES AND OTHER CUTOUTS IN TRACK RIB 1 TO 12', NULL);
+INSERT INTO `ws_scope` VALUES (7, 1, '2C', 'MPD', '572106-01-1', 'DETAILED INSPECTION OF OUTER WING, FRONT SPAR, FORWARD FACE BETWEEN RIB 22 AND RIB 27, INCLUDING ALL CUTOUTS.', NULL);
+INSERT INTO `ws_scope` VALUES (8, 1, '2C', 'MPD', '575233-01-1', 'DETAILED INSPECTION OF INBOARD DOUBLE-SLOTTED FLAP, TAB DRIVE ASSEMBLY AND ARTICULATION AT RIB 3, LH/RH', NULL);
+INSERT INTO `ws_scope` VALUES (9, 1, '2C', 'MPD', '572178-01-1', 'DETAILED INSPECTION OF OUTER WING', NULL);
+INSERT INTO `ws_scope` VALUES (10, 1, '2C', 'MPD', '575160-01-6', 'SPECIAL DETAILED INSPECTION (X-RAY AND HFEC) OF OUTER WING, TRAILING EDGE BOTTOM SKIN AFT OF REAR SPAR, ABOVE MLG REINFORCING', NULL);
+INSERT INTO `ws_scope` VALUES (11, 1, '2C', 'MPD', '275446-02-1', 'DETAILED INSPECTION OF TRACKS, ROLLERS AND SPHERICAL BEARINGS (AS FAR AS VISIBLE).', NULL);
+INSERT INTO `ws_scope` VALUES (12, 1, '2C', 'MPD', '533105-01-6', 'DETAILED INSPECTION OF MLG BAY FUSELAGE SIDE PANELS INSIDE MLG BAY, BETWEEN FR 42 AND FR 46, INCLUDING SLANTED FRAMES AND SIDE BOX, LH/RH', NULL);
+INSERT INTO `ws_scope` VALUES (13, 1, '2C', 'MPD', '524100-02-1', 'LUBRICATION OF EXTERIOR AVIONIC COMPARTMENT DOOR HANDLE', NULL);
+INSERT INTO `ws_scope` VALUES (14, 1, '2C', 'MPD', '531164-01-1', 'DETAILED INSPECTION OF FUSELAGE INTERNAL STRUCTURE, BELOW FORWARD PASSENGER/CREW DOOR AND CABIN FLOOR LEVEL, FROM FR 15 TO FR 21 AND BETWEEN STRINGER 28 LH AND STRINGER 28 RH.', NULL);
+INSERT INTO `ws_scope` VALUES (15, 1, '2C', 'MPD', 'ZL-161-03-2', 'GENERAL VISUAL INSPECTION OF BULK CARGO COMPARTMENT (EWIS)', NULL);
+INSERT INTO `ws_scope` VALUES (16, 1, '2C', 'MPD', 'ZL-826-02-2', 'GENERAL VISUAL INSPECTION OF AFT CARGO COMPARTMENT DOOR (EWIS)', NULL);
+INSERT INTO `ws_scope` VALUES (17, 1, '2C', 'MPD', '200001-02-1', 'HIRF/LIGHTNING PROTECTION-WING - CHECK THAT THE CONNECTOR IS CORRECTLY TIGHTENED', NULL);
+
+SET FOREIGN_KEY_CHECKS = 1;
