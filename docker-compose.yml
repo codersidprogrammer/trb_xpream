@@ -7,7 +7,7 @@ services:
     ports:
       - 3306:3306
     environment:
-      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_ROOT_PASSWORD: WelcomeCLD
       MYSQL_DATABASE: dev_trb
       MYSQL_USER: devtrb
       MYSQL_PASSWORD: dim4sg4nt3ng
@@ -16,8 +16,6 @@ services:
     volumes:
       # Dump files for initiating tables
       - ./data/:/docker-entrypoint-initdb.d/
-    networks:
-      - mysqlnet
     logging:
       driver: "json-file"
       options:
@@ -60,8 +58,6 @@ services:
       context: .
       dockerfile: logstash.Dockerfile
     container_name: sem_logstash
-    networks:
-      - mysqlnet
     depends_on:
       - mysql
       - elasticsearch
@@ -79,6 +75,6 @@ volumes:
   esdata:
     driver: local
 
-networks:
-  mysqlnet:
-    driver: bridge
+# networks:
+#   mysqlnet:
+#     driver: bridge
