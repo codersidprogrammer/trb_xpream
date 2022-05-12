@@ -35,7 +35,7 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - ./volumes/elasticsearch:/usr/share/elasticsearch/data
+      - esdata:/usr/share/elasticsearch/data
     logging:
       driver: "json-file"
       options:
@@ -71,3 +71,6 @@ services:
       options:
         max-size: "10k"
         max-file: "10"
+volumes:
+  esdata:
+    driver: local
