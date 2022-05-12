@@ -1,0 +1,1 @@
+SELECT * FROM dev_trb.ws_scope
