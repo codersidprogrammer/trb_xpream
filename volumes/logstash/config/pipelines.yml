@@ -1,0 +1,2 @@
+- pipeline.id: getwsheader-pipeline
+  path.config: "/usr/share/logstash/pipeline/get_wsheader.conf"
