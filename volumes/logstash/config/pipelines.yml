@@ -22,4 +22,7 @@
 - pipeline.id: getaccesspreparation-pipeline
   path.config: "/usr/share/logstash/pipeline/get_dbaccesspreparation.conf"
 
+- pipeline.id: getzonetaskmasteraccess-pipeline
+  path.config: "/usr/share/logstash/pipeline/get_zonetaskmasteraccess.conf"
+
   # Baru sampe line 11383 aerrocloud.sql
