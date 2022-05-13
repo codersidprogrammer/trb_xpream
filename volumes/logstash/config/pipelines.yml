@@ -20,6 +20,6 @@
   path.config: "/usr/share/logstash/pipeline/get_dbpreparation.conf"
 
 - pipeline.id: getaccesspreparation-pipeline
-  path.config: "/usr/share/logstash/pipeline/get_accesspreparation.conf"
+  path.config: "/usr/share/logstash/pipeline/get_dbaccesspreparation.conf"
 
   # Baru sampe line 11383 aerrocloud.sql
