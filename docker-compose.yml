@@ -56,6 +56,11 @@ services:
     depends_on:
       - elasticsearch
   
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8360:8080
   logstash:
     build:
       context: .
