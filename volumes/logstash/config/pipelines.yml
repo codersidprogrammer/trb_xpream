@@ -1,16 +1,25 @@
+- pipeline.id: getdbaccess-pipeline
+  path.config: "/usr/share/logstash/pipeline/get_dbaccess.conf"
+
 - pipeline.id: getwsheader-pipeline
   path.config: "/usr/share/logstash/pipeline/get_wsheader.conf"
 
 - pipeline.id: getwsscope-pipeline
   path.config: "/usr/share/logstash/pipeline/get_wsscope.conf"
-
-- pipeline.id: getdbaccess-pipeline
-  path.config: "/usr/share/logstash/pipeline/get_dbaccess.conf"
   
 - pipeline.id: getdbequipment-pipeline
   path.config: "/usr/share/logstash/pipeline/get_dbequipment.conf"
 
 - pipeline.id: getdbmasteraccess-pipeline
   path.config: "/usr/share/logstash/pipeline/get_dbmasteraccess.conf"
+
+- pipeline.id: getdbmastertools-pipeline
+  path.config: "/usr/share/logstash/pipeline/get_dbmastertools.conf"
+
+- pipeline.id: getdbpreparation-pipeline
+  path.config: "/usr/share/logstash/pipeline/get_dbpreparation.conf"
+
+- pipeline.id: getaccesspreparation-pipeline
+  path.config: "/usr/share/logstash/pipeline/get_accesspreparation.conf"
 
   # Baru sampe line 11383 aerrocloud.sql
