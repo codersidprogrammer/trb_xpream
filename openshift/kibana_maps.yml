@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kibana-configmaps
+  namespace: xops
+data:
+  kibana.yml: |
+    server.name: ${ELASTICSEARCH_SERVERNAME}
+    server.host: 0.0.0.0
+    elasticsearch.hosts: ['${ELASTICSEARCH_HOST:elasticsearch}:${ELASTICSEARCH_PORT:9200}']
+    elasticsearch.username: ${ELASTICSEARCH_USERNAME}
+    elasticsearch.password: ${ELASTICSEARCH_PASSWORD}

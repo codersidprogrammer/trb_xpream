@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: xpream 
+  name: elastic-trb-database
+  labels:
+    app: elasticsearch-trb
+    service: elastic-trb-database
+spec:
+  clusterIP: None
+  selector:
+    service: elastic-trb-database
+  ports:
+    - port: 9300
+      name: node-to-node
