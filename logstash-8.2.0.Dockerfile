@@ -6,7 +6,7 @@ RUN curl -L --output "mssql.tar.gz" "https://download.microsoft.com/download/4/d
     && ls sqljdbc_10.2 \
     && ls sqljdbc_10.2/enu \
     && mv "sqljdbc_10.2/enu/mssql-jdbc-10.2.1.jre17.jar" "mssql-jdbc-10.2.1.jre17.jar" \
-    && mv "sqljdbc_10.2/enu/mssql-jdbc-10.2.1.jre17.jar" "mssql-jdbc-10.2.1.jre11.jar" \
-    && mv "sqljdbc_10.2/enu/mssql-jdbc-10.2.1.jre17.jar" "mssql-jdbc-10.2.1.jre8.jar" \
+    && mv "sqljdbc_10.2/enu/mssql-jdbc-10.2.1.jre11.jar" "mssql-jdbc-10.2.1.jre11.jar" \
+    && mv "sqljdbc_10.2/enu/mssql-jdbc-10.2.1.jre8.jar" "mssql-jdbc-10.2.1.jre8.jar" \
     && rm -r "sqljdbc_10.2" "mssql.tar.gz"
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint"]
