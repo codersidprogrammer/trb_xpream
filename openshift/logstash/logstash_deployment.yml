@@ -1,0 +1,65 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  labels:
+    app: logstash-trb
+    deploymentconfig: logstash-trb
+  name: logstash-trb
+  namespace: xpream
+spec:
+  replicas: 1
+  selector:
+    app: logstash-trb
+    deploymentconfig: logstash-trb
+  template:
+    metadata:
+      labels:
+        app: logstash-trb
+        deploymentconfig: logstash-trb
+    spec:
+      containers:
+        - name: logstash-trb
+          image: >-
+            docker-registry.default.svc:5000/xpream/logstash:8.2.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5044
+              protocol: TCP
+            - containerPort: 9600
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+            - mountPath: /usr/share/logstash/config/logstash.yml
+              subPath: logstash.yml
+              name: logstash-settings
+            - mountPath: /usr/share/logstash/config/pipelines.yml
+              subPath: pipelines.yml
+              name: logstash-settings
+            - mountPath: /usr/share/logstash/pipeline/get_320_jobcard.conf
+              subPath: get_320_jobcard.conf
+              name: logstash-settings
+            - mountPath: /usr/share/logstash/config/queries/get_xpreamview_jc.sql
+              subPath: get_xpreamview_jc.sql
+              name: logstash-settings
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+        - name: logstash-settings
+          configMap:
+            defaultMode: 420
+            items:
+              - key: logstash.yml
+                path: logstash.yml
+              - key: pipelines.yml
+                path: pipelines.yml
+              - key: get_320_jobcard.conf
+                path: get_320_jobcard.conf
+              - key: get_xpreamview_jc.sql
+                path: get_xpreamview_jc.sql
+            name: logstash-configmaps
+        

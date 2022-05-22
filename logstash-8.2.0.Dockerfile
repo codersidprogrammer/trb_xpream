@@ -1,6 +1,10 @@
 FROM logstash:8.2.0
-RUN curl -L --output "mssql.tar.gz" "https://download.microsoft.com/download/F/0/F/F0FF3F95-D42A-46AF-B0F9-8887987A2C4B/sqljdbc_4.2.8112.200_enu.tar.gz" \
-    && tar -xf "mssql.tar.gz" "sqljdbc_4.2/enu/jre8/sqljdbc42.jar" \
-    && mv "sqljdbc_4.2/enu/jre8/sqljdbc42.jar" "sqljdbc42.jar" \
-    && rm -r "sqljdbc_4.2" "mssql.tar.gz"
+RUN curl -L --output "mssql.tar.gz" "https://download.microsoft.com/download/4/d/5/4d5a79be-35f8-48d4-a984-473747362f99/sqljdbc_10.2.1.0_enu.tar.gz" \
+    && tar -xf "mssql.tar.gz" "sqljdbc_10.2/enu/mssql-jdbc-10.2.1.jre17.jar" \
+    && tar -xf "mssql.tar.gz" "sqljdbc_10.2/enu/mssql-jdbc-10.2.1.jre11.jar" \
+    && tar -xf "mssql.tar.gz" "sqljdbc_10.2/enu/mssql-jdbc-10.2.1.jre8.jar" \
+    && mv "sqljdbc_10.2/enu/mssql-jdbc-10.2.1.jre17.jar" "mssql-jdbc-10.2.1.jre17.jar" \
+    && mv "sqljdbc_10.2/enu/mssql-jdbc-10.2.1.jre17.jar" "mssql-jdbc-10.2.1.jre11.jar" \
+    && mv "sqljdbc_10.2/enu/mssql-jdbc-10.2.1.jre17.jar" "mssql-jdbc-10.2.1.jre8.jar" \
+    && rm -r "sqljdbc_10.2" "mssql.tar.gz"
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint"]
