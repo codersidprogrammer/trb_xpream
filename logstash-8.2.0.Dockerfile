@@ -3,6 +3,7 @@ RUN curl -L --output "mssql.tar.gz" "https://download.microsoft.com/download/4/d
     && tar -xf "mssql.tar.gz" "sqljdbc_10.2/enu/mssql-jdbc-10.2.1.jre17.jar" \
     && tar -xf "mssql.tar.gz" "sqljdbc_10.2/enu/mssql-jdbc-10.2.1.jre11.jar" \
     && tar -xf "mssql.tar.gz" "sqljdbc_10.2/enu/mssql-jdbc-10.2.1.jre8.jar" \
+    && ls \
     && mv "sqljdbc_10.2/enu/mssql-jdbc-10.2.1.jre17.jar" "mssql-jdbc-10.2.1.jre17.jar" \
     && mv "sqljdbc_10.2/enu/mssql-jdbc-10.2.1.jre17.jar" "mssql-jdbc-10.2.1.jre11.jar" \
     && mv "sqljdbc_10.2/enu/mssql-jdbc-10.2.1.jre17.jar" "mssql-jdbc-10.2.1.jre8.jar" \
